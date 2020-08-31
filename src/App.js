@@ -1,10 +1,30 @@
-import React from 'react';
+import React, { Profiler } from 'react';
+import {BrowserRouter as Router,Route,Redirect,Switch} from 'react-router-dom'
+import Products from './products/pages/products';
+import Cart from './cart/pages/cart';
+import Profile from './profile/pages/profile';
+
 
 
 const App =()=>{
- <div>
-     <H1>Home</H1>
- </div>
+
+
+    
+return(
+<Router>
+<Route path="/profile">
+        <Profile/>
+    </Route>
+    <Route path="/cart">
+        <Cart/>
+    </Route>
+    <Route path="/" exact>
+            <Products/>
+    </Route>
+</Router>
+
+)
+
 }
 
 
