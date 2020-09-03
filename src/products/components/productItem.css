@@ -1,0 +1,9 @@
+/* .item{
+    flex-basis:auto;
+    flex: 0 1 24%;
+} */
+
+.item img {
+     width:auto;
+     height:auto;
+ }
