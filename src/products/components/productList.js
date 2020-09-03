@@ -15,7 +15,7 @@ const ProductList =(props)=>{
         )
     } 
   
-    return(<div className='id'>
+    return(<div className='container'>
         
            { props.items.map(item=>(
               <ProductItem 
