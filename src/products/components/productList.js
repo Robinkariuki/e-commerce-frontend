@@ -14,7 +14,7 @@ const ProductList =(props)=>{
             </div>
         )
     } 
-console.log(props.items.products)
+console.log(props)
 return(<div className='container'>
     {props.items.products.map(item=>(
         <ProductItem
@@ -23,8 +23,10 @@ return(<div className='container'>
         image={item.image}
         description={item.description}
         price={item.price}
-
-
+        id={item._id}
+     
+        
+        
 
         />
     ))}

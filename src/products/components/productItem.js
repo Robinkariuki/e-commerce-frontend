@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './productItem.css';
 
 
@@ -7,7 +7,32 @@ import './productItem.css';
 
 
 const ProductItem =(props)=>{
-    console.log(props.image)
+
+
+  const addToCart =async (productId,quantity)=>{
+    try{
+    const url = "http://localhost:5000/api/cart/addtocart"
+    const response =await fetch(url,{
+      method: "POST",
+      body: JSON.stringify({
+        productId: productId,
+        quantity: quantity,
+      }),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    });let data = await response.json();
+    alert("Item Added To Cart");
+    console.log(data);
+  } catch (err) {
+    alert("Something Went Wrong");
+    console.log(err);
+  }
+
+
+  }
+
+    console.log(props.id)
 
     return(    
   <div className="item card-group">
@@ -27,9 +52,9 @@ const ProductItem =(props)=>{
     <h5 className="card-title font-weight-bold fuchsia-rose-text mb-0">Description</h5>
   <p className="aqua-sky-text mb-0">{props.description||'no descriptption'}</p>
   <ul className="list-unstyled list-inline my-2">
-  <i className="far fa-heart"> {props.likes}</i>
+    <p> KSH  {props.price}</p>
   </ul>
-  <i className="fas fa-cart-plus" type='submit'> add to cart</i>
+  <i className="fas fa-cart-plus" type='submit' onClick={(e)=>addToCart(props.id,1)}> add to cart</i>
 
 </div>
 </div>
