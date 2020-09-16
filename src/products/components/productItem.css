@@ -1,9 +1,16 @@
-/* .item{
+.item{
     flex-basis:auto;
-    flex: 0 1 24%;
-} */
+    flex: 0 1 calc(25% - 1em);
+    
+}
 
-.item img {
-     width:auto;
-     height:auto;
+.imagesize {
+    height: 160px;
+    object-fit: cover;
+ 
  }
+.far{
+    color: darkred;
+}
+
+

@@ -2,51 +2,35 @@ import React from 'react';
 import './productItem.css';
 
 
-{/* <div className="card mb-4">
-<div className="view overlay">
-  <img className="card-img-top" src="https://mdbootstrap.com/img/Photos/Square/img(6).jpg" alt="Card image cap">
-  <a href="#!">
-    <div className="mask rgba-white-slight"></div>
-  </a>
-</div>
-<div className="card-body p-3">
-  <h5 className="card-title font-weight-bold fuchsia-rose-text mb-0">Indie Funk</h5>
-  <p className="aqua-sky-text mb-0">Generation Funk</p>
-  <ul className="list-unstyled list-inline my-2">
-    <li className="list-inline-item mx-0"><i className="fas fa-star mimosa-text"></i></li>
-    <li className="list-inline-item mx-0"><i className="fas fa-star mimosa-text"></i></li>
-    <li className="list-inline-item mx-0"><i className="fas fa-star mimosa-text"></i></li>
-    <li className="list-inline-item mx-0"><i className="fas fa-star mimosa-text"></i></li>
-    <li className="list-inline-item mx-0"><i className="fas fa-star mimosa-text"></i></li>
-  </ul>
-  <p className="chili-pepper-text mb-0">19,99 $</p>
-</div>
-</div> */}
+
+
 
 
 const ProductItem =(props)=>{
-    console.log(props)
+    console.log(props.image)
 
     return(    
-  <div className="item">
-   <div class="card mb-4">
-    <div className="view overlay">
-  <img className="card-img-top" src={props.image.thumb} alt="Card image cap"></img>
+  <div className="item card-group">
+   <div className="card mb-4 ">
+    <div className="view overlay" >
+      <div className='imagesize'>
+  <img className="card-img-top" src={`http://localhost:5000/${props.image}`} alt="Card image cap"></img>
+  </div>
   <a href="#!">
     <div className="mask rgba-white-slight"></div>
   </a>
 </div>
 <div className="card-body p-3">
-  <h5 className="card-title font-weight-bold fuchsia-rose-text mb-0">Indie Funk</h5>
-  <p className="aqua-sky-text mb-0">Generation Funk</p>
+<a href="#!" className="orange-text d-flex flex-row-reverse p-2">
+      <h5 className="waves-effect waves-light">more details<i className="fas fa-angle-double-right ml-2"></i></h5>
+    </a>
+    <h5 className="card-title font-weight-bold fuchsia-rose-text mb-0">Description</h5>
+  <p className="aqua-sky-text mb-0">{props.description||'no descriptption'}</p>
   <ul className="list-unstyled list-inline my-2">
-    <li className="list-inline-item mx-0"><i className="fas fa-star mimosa-text"></i></li>
-    <li className="list-inline-item mx-0"><i className="fas fa-star mimosa-text"></i></li>
-    <li className="list-inline-item mx-0"><i className="fas fa-star mimosa-text"></i></li>
-    <li className="list-inline-item mx-0"><i className="fas fa-star mimosa-text"></i></li>
-    <li className="list-inline-item mx-0"><i className="fas fa-star mimosa-text"></i></li>
+  <i className="far fa-heart"> {props.likes}</i>
   </ul>
-  <p className="chili-pepper-text mb-0">19,99 $</p>
+  <i className="fas fa-cart-plus" type='submit'> add to cart</i>
+
 </div>
 </div>
   </div>

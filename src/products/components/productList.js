@@ -14,25 +14,42 @@ const ProductList =(props)=>{
             </div>
         )
     } 
+console.log(props.items.products)
+return(<div className='container'>
+    {props.items.products.map(item=>(
+        <ProductItem
+        className={'id'}
+        key={item._id} 
+        image={item.image}
+        description={item.description}
+        price={item.price}
+
+
+
+        />
+    ))}
+    
+</div>)
+    
   
-    return(<div className='container'>
+    // return(<div className='container'>
         
-           { props.items.map(item=>(
-              <ProductItem 
-              className={'id'} 
-              key={item.id}
-              id={item.id}
-              image={item.urls}
-              alt={item.alt_description}
-              likes={item.likes}
-              description={item.description}
+    //        { props.items.map(item=>(
+    //           <ProductItem 
+    //           className={'id'} 
+    //           key={item.id}
+    //           id={item.id}
+    //           image={item.urls}
+    //           alt={item.alt_description}
+    //           likes={item.likes}
+    //           description={item.description}
               
               
               
-              />
-           ))}
-        </div>
-    )
+    //           />
+    //        ))}
+    //     </div>
+    // )
 }
 
 

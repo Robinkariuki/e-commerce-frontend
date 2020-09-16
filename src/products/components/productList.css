@@ -1,7 +1,18 @@
 .container{
  margin-top:20px;
+
   display: flex;
   flex-wrap: wrap;
   justify-content:space-around;
 }
 
+
+
+@media screen and (max-width: 480px) {
+    .container {
+        flex-direction:column;
+   }
+ 
+
+
+}

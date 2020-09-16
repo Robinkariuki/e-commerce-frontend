@@ -11,7 +11,9 @@ const App =()=>{
 
     
 return(
+    
 <Router>
+    <Switch>
 <Route path="/profile">
         <Profile/>
     </Route>
@@ -21,6 +23,7 @@ return(
     <Route path="/" exact>
             <Products/>
     </Route>
+    </Switch>
 </Router>
 )
 
