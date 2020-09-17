@@ -1,7 +1,7 @@
 import React,{useEffect,useState} from 'react'
 import ProductList from '../components/productList';
 import MainNavigation from '../../shared/Navigation/MainNavbar';
-const Unsplash = require('unsplash-js').default;
+// const Unsplash = require('unsplash-js').default;
 
 const Products =()=>{
   const [products, setProducts] = useState([]);
