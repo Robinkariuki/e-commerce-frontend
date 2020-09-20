@@ -4,18 +4,22 @@ const CartItem =(props)=>{
 
   const increaseQty= async (id)=> {
     try {
-      const res = await fetch("http://localhost:5000/cart/increase-quantity", {
+      const url =  "http://localhost:5000/api/cart/increase-quantity"
+      const response = await fetch(url,{
         method: "POST",
         body: JSON.stringify({
-          productId: id,
+          productId:props.id,
+         
+          
         }),
         headers: {
           "Content-type": "application/json; charset=UTF-8",
         },
-      });
-      console.log(res);
+      });let data = await response.json();
       alert("Item Increamented");
+      console.log(data);
     } catch (err) {
+      alert("Something Went Wrong");
       console.log(err);
     }
   }

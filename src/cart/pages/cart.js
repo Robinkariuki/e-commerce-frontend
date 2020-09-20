@@ -11,7 +11,7 @@ const Cart =()=>{
    
    useEffect(()=>{
        const getCartItems =async ()=>{
-           const url =  'http://localhost:5000/api/cart/get-cart';
+           const url =  "http://localhost:5000/api/cart/get-cart";
            await fetch(url)
            .then((response)=>response.json())
            .then((res)=>{
