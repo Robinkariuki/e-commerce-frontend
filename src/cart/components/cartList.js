@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import CartItem from './cartItem';
 
 
 const CartList =(props)=>{
+
+
     if(props.items.length===0){
         return(
             <div className="center">
@@ -13,6 +15,7 @@ const CartList =(props)=>{
             </div>
         )
     } 
+
     console.log(props)
     return(<div>
         <section className="container">
@@ -25,6 +28,8 @@ const CartList =(props)=>{
             price={item.price}
             id={item.productId._id}
             increaseQty={props.increaseQty}
+            getCartItems={props.getCartItems}
+            
 
             />
         ))}

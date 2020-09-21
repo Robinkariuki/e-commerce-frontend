@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 const CartItem =(props)=>{
 
@@ -6,7 +6,9 @@ const CartItem =(props)=>{
 
 
 
-
+useEffect(()=>{
+  props.getCartItems()
+},[])
 
 
 console.log(props)
@@ -46,7 +48,7 @@ console.log(props)
                     <div>
                         <div className="def-number-input number-input safari_only mb-0 w-100">
                           <button className="btn btn-primary px-3"> <i className="fas fa-minus"></i></button>
-                          <input className="quantity" min="0" name="quantity" defaultValue={props.quantity} type="number"></input>
+                          <input className="quantity" min="0" name="quantity" Value={props.quantity} type="number"></input>
                           <button className="btn btn-primary px-3" onClick={(e)=>props.increaseQty(props.id)}> <i className="fas fa-plus"aria-hidden="true"></i></button>
                         </div>
                      

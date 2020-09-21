@@ -58,7 +58,9 @@ const Cart =()=>{
 
 return(<CartList items={Cartitems}
  increaseQty={increaseQty}   
-total={Total}/>)
+total={Total}
+getCartItems={getCartItems}/>)
+
 }
 
 
