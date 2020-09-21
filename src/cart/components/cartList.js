@@ -29,6 +29,7 @@ const CartList =(props)=>{
             id={item.productId._id}
             increaseQty={props.increaseQty}
             getCartItems={props.getCartItems}
+            decreaseQuantity={props.decreaseQuantity}
             
 
             />

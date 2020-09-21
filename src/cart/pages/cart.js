@@ -35,7 +35,7 @@ const Cart =()=>{
       }
     
 
-const decreaseQunatity=async(id)=>{
+const decreaseQuantity=async(id)=>{
   try{
   const url = "http://localhost:5000/api/cart/reduce-quantity"
   const response = await fetch(url,{
@@ -84,7 +84,11 @@ console.log(response);
 return(<CartList items={Cartitems}
  increaseQty={increaseQty}   
 total={Total}
-getCartItems={getCartItems}/>)
+getCartItems={getCartItems}
+decreaseQuantity={decreaseQuantity}
+
+/>)
+
 
 }
 
