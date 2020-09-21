@@ -13,7 +13,7 @@ const CartList =(props)=>{
             </div>
         )
     } 
-    console.log(props.items)
+    console.log(props)
     return(<div>
         <section className="container">
     <h5 className="mb-4">Cart (<span>{props.items.length}</span> items)</h5>
@@ -23,7 +23,9 @@ const CartList =(props)=>{
             image={item.image}
             quantity={item.quantity}
             price={item.price}
-            id={item._id}
+            id={item.productId._id}
+            increaseQty={props.increaseQty}
+
             />
         ))}
            <div className="col-lg-4">

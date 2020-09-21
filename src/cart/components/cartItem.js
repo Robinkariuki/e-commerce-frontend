@@ -2,34 +2,14 @@ import React from 'react';
 
 const CartItem =(props)=>{
 
-  const increaseQty= async (id)=> {
-    try {
-      const url =  "http://localhost:5000/api/cart/increase-quantity"
-      const response = await fetch(url,{
-        method: "POST",
-        body: JSON.stringify({
-          productId:props.id,
-         
-          
-        }),
-        headers: {
-          "Content-type": "application/json; charset=UTF-8",
-        },
-      });let data = await response.json();
-      alert("Item Increamented");
-      console.log(data);
-    } catch (err) {
-      alert("Something Went Wrong");
-      console.log(err);
-    }
-  }
+  
 
 
 
 
 
 
-console.log(props.id)
+console.log(props)
     return(
      
       <div className="row">
@@ -67,7 +47,7 @@ console.log(props.id)
                         <div className="def-number-input number-input safari_only mb-0 w-100">
                           <button className="btn btn-primary px-3"> <i className="fas fa-minus"></i></button>
                           <input className="quantity" min="0" name="quantity" defaultValue={props.quantity} type="number"></input>
-                          <button className="btn btn-primary px-3" onClick={(e)=>increaseQty(props.id)}> <i className="fas fa-plus"aria-hidden="true"></i></button>
+                          <button className="btn btn-primary px-3" onClick={(e)=>props.increaseQty(props.id)}> <i className="fas fa-plus"aria-hidden="true"></i></button>
                         </div>
                      
                       </div>
