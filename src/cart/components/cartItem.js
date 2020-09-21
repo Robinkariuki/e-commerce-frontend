@@ -38,7 +38,7 @@ console.log(props)
                   <div>
                     <div className="d-flex justify-content-between">
                       <div>
-                        <h5>Blue denim shirt</h5>
+    <h5></h5>
                         <p className="mb-3 text-muted text-uppercase small">Shirt - blue</p>
                         <p className="mb-2 text-muted text-uppercase small">Color: blue</p>
                         <p className="mb-3 text-muted text-uppercase small">Size: M</p>
@@ -48,15 +48,16 @@ console.log(props)
                     <div>
                         <div className="def-number-input number-input safari_only mb-0 w-100">
                           <button className="btn btn-primary px-3"onClick={(e)=>props.decreaseQuantity(props.id)}> <i className="fas fa-minus"></i></button>
-                          <input className="quantity" min="0" name="quantity" Value={props.quantity} type="number"></input>
-                          <button className="btn btn-primary px-3" onClick={(e)=>props.increaseQty(props.id)}> <i className="fas fa-plus"aria-hidden="true"></i></button>
+                          <input className="quantity" min="0" name="quantity" readOnly value={props.quantity} type="number"></input>
+                          <button className="
+btn btn-primary px-3" onClick={(e)=>props.increaseQty(props.id)}> <i className="fas fa-plus"aria-hidden="true"></i></button>
                         </div>
                      
                       </div>
                     <div className="d-flex justify-content-between align-items-center">
                       <div>
                         <a href="#!" type="button" className="card-link-secondary small text-uppercase mr-3"><i
-                            className="fas fa-trash-alt mr-1"></i> Remove item </a>
+                            className="fas fa-trash-alt mr-1"onClick={(e)=>props.removeItem(props.id)} >Remove item </i> </a>
                       </div>
     <p className="mb-0"><span><strong id="summary">ksh{props.price}</strong></span></p>
                     </div>

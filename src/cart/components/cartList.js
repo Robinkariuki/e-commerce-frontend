@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import CartItem from './cartItem';
-
+import LoadingSpinner from '../../shared/LoadingSpinner/loadingspinner';
 
 const CartList =(props)=>{
 
@@ -9,7 +9,7 @@ const CartList =(props)=>{
         return(
             <div className="center">
                 
-                <h2>No Items</h2>
+                <LoadingSpinner/>
                
 
             </div>
@@ -30,6 +30,8 @@ const CartList =(props)=>{
             increaseQty={props.increaseQty}
             getCartItems={props.getCartItems}
             decreaseQuantity={props.decreaseQuantity}
+            removeItem={props.removeItem}
+            name={props.name}
             
 
             />
