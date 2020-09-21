@@ -35,6 +35,31 @@ const Cart =()=>{
       }
     
 
+const decreaseQunatity=async(id)=>{
+  try{
+  const url = "http://localhost:5000/api/cart/reduce-quantity"
+  const response = await fetch(url,{
+    method: "POST",
+    body: JSON.stringify({
+      productId:id,
+    }),
+    headers:{
+    "Content-type": "application/json; charset=UTF-8",
+  },
+});
+alert("Item decreased");
+getCartItems()
+console.log(response);
+
+  }catch (err) {
+    alert("Something Went Wrong");
+    console.log(err);
+  }
+
+}
+
+
+
     const getCartItems =async ()=>{
         const url =  "http://localhost:5000/api/cart/get-cart";
         await fetch(url)
