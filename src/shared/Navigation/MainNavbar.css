@@ -1,4 +1,24 @@
 .linkText{ color: #d43333 ; }
 
-.navbar{ position: relative !important; }
+.navbar{ position: relative !important;
+    background: rgb(252,176,69);
+    background: linear-gradient(90deg, rgba(252,176,69,1) 0%, rgba(250,48,48,1) 0%, rgba(61,54,66,1) 0%, rgba(22,6,8,1) 24%, rgba(248,48,48,1) 87%);
+}
 
+
+.navbar ul{
+
+        list-style-type: none;
+    
+}
+
+i{
+    color: white;
+}
+a:link {
+    color: white;
+  }
+
+a:hover {
+  color: rgb(236, 99, 99);
+}
