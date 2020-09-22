@@ -8,8 +8,7 @@ import Profile from './profile/pages/profile';
 
 
 const App =()=>{
-
-
+ const { token, login, logout, userId } = useAuth();
     
 return(
     
