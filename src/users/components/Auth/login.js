@@ -21,7 +21,7 @@ const Login =()=>{
      
       <div class="md-form">
         <input type="email" id="materialLoginFormEmail" class="form-control"></input>
-        <label for="materialLoginFormEmail">E-mail</label>
+        <label htmlfor="materialLoginFormEmail">E-mail</label>
       </div>
 
   
