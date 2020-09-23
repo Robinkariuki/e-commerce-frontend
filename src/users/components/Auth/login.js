@@ -1,10 +1,9 @@
 import React,{useState} from 'react';
 import './login.css';
-import AuthContext from '../../context/auth-context';
+import {useHistory} from 'react-router-dom';
+import Authcontext from '../../context/auth-context'
 
 const Login =()=>{
-
-
 
 
 
