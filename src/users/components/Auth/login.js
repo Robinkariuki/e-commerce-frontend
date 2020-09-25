@@ -1,14 +1,42 @@
 import React,{useState} from 'react';
 import './login.css';
 import {useHistory} from 'react-router-dom';
-import Authcontext from '../../context/auth-context'
+import Authcontext, { AuthContext } from '../../context/auth-context'
+import { useContext } from 'react';
 
 const Login =()=>{
 
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
+  const [error, setError] = useState();
 
 
+  const history = useHistory();
+  const auth = useContext(AuthContext);
 
-
+const submitHandler = async (e) =>{
+  e.preventDefault();
+  try{
+    const url = "http://localhost:5000/api/users/login";
+    const response = await fetch(url,{
+      method:"POST",
+      body:JSON.stringify({
+        email,
+        password
+      }),
+      headers:{
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    });
+    auth.login(response.userId,response.token);
+    
+    localStorage.setItem("auth-token",response.token )
+    alert("login sucessfull")
+    history.push('/')
+  }catch(error){
+ console.log(error)
+  }
+}  
 
 
 
@@ -25,17 +53,17 @@ const Login =()=>{
   <div class="card-body px-lg-5 pt-0">
 
     
-    <form class="text-center" style={{color: 757575}} action="#!">
+    <form class="text-center" style={{color: 757575}} action="#!"onSubmit={submitHandler}>
 
      
       <div class="md-form">
-        <input type="email" id="materialLoginFormEmail" class="form-control"></input>
+        <input type="email" id="materialLoginFormEmail" class="form-control"onChange={(e)=>{setEmail(e.target.value)}}></input>
         <label htmlfor="materialLoginFormEmail">E-mail</label>
       </div>
 
   
       <div class="md-form">
-        <input type="password" id="materialLoginFormPassword" class="form-control"></input>
+        <input type="password" id="materialLoginFormPassword" class="form-control"onChange={(e)=>{setPassword(e.target.value)}}></input>
         <label for="materialLoginFormPassword">Password</label>
       </div>
 
