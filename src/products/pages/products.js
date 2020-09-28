@@ -1,14 +1,17 @@
-import React,{useEffect,useState} from 'react'
+import React,{useContext, useEffect,useState} from 'react'
 import ProductList from '../components/productList';
 import MainNavigation from '../../shared/Navigation/MainNavbar';
 import LoadingSpinner from '../../shared/LoadingSpinner/loadingspinner'
 import './products.css'
+import UserContext from '../../users/context/user-context';
 // const Unsplash = require('unsplash-js').default;
 
 const Products =()=>{
   const [products, setProducts] = useState([]);
   const [hasError, setError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+
+  const {userData} = useContext(UserContext);
 
 
   useEffect(()=>{
@@ -55,6 +58,7 @@ const Products =()=>{
     //   })
 
     // },[])
+    console.log(userData);
     return(
      
      <React.Fragment>

@@ -1,11 +1,24 @@
-import React from  'react';
+import React, { useContext } from  'react';
 import {NavLink} from 'react-router-dom';
 import './MainNavbar.css'
-
+import UserContext from'../../users/context/user-context';
 
 const MainNavigation =()=>{
-  
+
+const {userData} =useContext(UserContext);
+
+
+  // const logout =()=>{
+  //   setUserData({
+  //     token:undefined,
+  //     user:undefined
+  //   })
+  //   localStorage.setItem("auth-token","");
+  // }
+
+
     return(
+     
 //  <nav className="navbar mean-fruit-gradient ">
 //     <ul className="navbar-nav mr-auto">
 //     <NavLink to="/" className="linkText">
@@ -23,7 +36,8 @@ const MainNavigation =()=>{
 // </nav> 
 <nav class="mb-1 navbar navbar-expand-lg mean-fruit-gradientt ">
 <NavLink to="/">
-  <a class="navbar-brand">Products</a>
+  <a class="navbar-brand"></a>
+  
    </NavLink>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-333"
     aria-controls="navbarSupportedContent-333" aria-expanded="false" aria-label="Toggle navigation">
@@ -33,11 +47,20 @@ const MainNavigation =()=>{
     <ul class="navbar-nav ml-auto nav-flex-icons">
    
       <li class="nav-item ">
-      <NavLink to="/cart">
-        <a class="nav-link waves-effect waves-light linkText">
-          <i class="fas fa-shopping-cart"></i>
-        </a>
-        </NavLink>
+        {userData.user ?(
+          <NavLink to="/cart">
+          <a class="nav-link waves-effect waves-light linkText">
+            <i class="fas fa-shopping-cart"></i>
+          </a>
+          </NavLink>
+        ):(
+          <NavLink to="/signup">
+          <a class="nav-link waves-effect waves-light linkText">
+            <i class="fas fa-shopping-cart"></i>
+          </a>
+          </NavLink>
+        )}
+      
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
@@ -46,15 +69,22 @@ const MainNavigation =()=>{
         </a>
         <div class="dropdown-menu dropdown-menu-right dropdown-default"
           aria-labelledby="navbarDropdownMenuLink-333">
-          <NavLink to='/login'>
-          <a class="dropdown-item" href="#">Login</a>
-          </NavLink>
-          <NavLink to="/signup">
-          <a class="dropdown-item" href="#">Sign Up</a>
-          </NavLink>
-          <NavLink to='logout'> 
-          <a class="dropdown-item" href="#">Log Out</a>
-          </NavLink>
+            {userData.user ?(
+                 <NavLink to='logout'> 
+                 <a class="dropdown-item" href="#">Log Out</a>
+                 </NavLink>
+            ):(
+              <div>
+              <NavLink to='/login'>
+              <a class="dropdown-item" href="#">Login</a>
+              </NavLink>
+              <NavLink to="/signup">
+              <a class="dropdown-item" href="#">Sign Up</a>
+              </NavLink>
+              </div>
+            )}
+         
+      
         </div>
       </li>
     </ul>

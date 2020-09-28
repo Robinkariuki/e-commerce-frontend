@@ -28,7 +28,7 @@ const submitHandler = async (e) =>{
         "Content-type": "application/json; charset=UTF-8",
       },
     });
-    auth.login(response.userId,response.token);
+    // auth.login(response.userId,response.token);
     
     localStorage.setItem("auth-token",response.token )
     alert("login sucessfull")
