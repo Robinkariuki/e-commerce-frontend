@@ -27,10 +27,16 @@ const submitHandler = async (e) =>{
       headers:{
         "Content-type": "application/json; charset=UTF-8",
       },
-    });
+    })
+    .then((response)=>response.json())
+    .then(response=>{
+      
+      console.log(response)
+      localStorage.setItem("auth-token",response.token)
+    })
     // auth.login(response.userId,response.token);
     
-    localStorage.setItem("auth-token",response.token )
+    
     alert("login sucessfull")
     history.push('/')
   }catch(error){
@@ -43,33 +49,33 @@ const submitHandler = async (e) =>{
     return(
         <div className="container">
          
-<div class="card">
+<div className="card">
 
-  <h5 class="card-header info-color white-text text-center py-4">
+  <h5 className="card-header info-color white-text text-center py-4">
     <strong>Sign in</strong>
   </h5>
 
 
-  <div class="card-body px-lg-5 pt-0">
+  <div className="card-body px-lg-5 pt-0">
 
     
-    <form class="text-center" style={{color: 757575}} action="#!"onSubmit={submitHandler}>
+    <form className="text-center" style={{color: 757575}} action="#!"onSubmit={submitHandler}>
 
      
-      <div class="md-form">
-        <input type="email" id="materialLoginFormEmail" class="form-control"onChange={(e)=>{setEmail(e.target.value)}}></input>
-        <label htmlfor="materialLoginFormEmail">E-mail</label>
+      <div className="md-form">
+        <input type="email" id="materialLoginFormEmail" className="form-control"onChange={(e)=>{setEmail(e.target.value)}}></input>
+        <label htmlFor="materialLoginFormEmail">E-mail</label>
       </div>
 
   
-      <div class="md-form">
-        <input type="password" id="materialLoginFormPassword" class="form-control"onChange={(e)=>{setPassword(e.target.value)}}></input>
-        <label for="materialLoginFormPassword">Password</label>
+      <div className="md-form">
+        <input type="password" id="materialLoginFormPassword" className="form-control"onChange={(e)=>{setPassword(e.target.value)}}></input>
+        <label htmlFor="materialLoginFormPassword">Password</label>
       </div>
 
  
     
-      <button class="btn btn-outline-red btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit">Sign in</button>
+      <button className="btn btn-outline-red btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit" disabled={!email  || !password}>Sign in</button>
 
      
       <p>Not a member?

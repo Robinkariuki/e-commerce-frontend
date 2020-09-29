@@ -1,7 +1,8 @@
 import React, { useContext,useState } from 'react';
 import './signUp.css';
 import {useHistory} from 'react-router-dom';
-import { AuthContext } from '../../context/auth-context'
+import userContext from '../../context/user-context';
+import ErrorNotice from '../../errorNotice';
 
 const SignUp =()=>{
 
@@ -11,7 +12,8 @@ const SignUp =()=>{
     const [error,setError] = useState();
 
     const history = useHistory();
-    const auth = useContext(AuthContext);
+    
+    const {setUserData} = useContext(userContext)
      
 const submitHandler =async (e) =>{
     e.preventDefault();
@@ -28,13 +30,20 @@ try{
        headers:{
         "Content-type": "application/json; charset=UTF-8",
       },
-   });
-   auth.login(response.userId,response.token);
- 
-   alert("signup sucessfull")
-   history.push('/login')
-}catch(error){
-    console.log(error)
+   })
+    .then((response)=>response.json())
+    .then(response=>{
+        setUserData({
+            token:response.token,
+            user:response.user,
+        });
+console.log(response.errors)
+setError(response.errors)
+   localStorage.setItem("auth-token",response.token);
+   history.push('/login') 
+    })
+}catch(err){
+   console.log(err)
 }
    }
 
@@ -51,6 +60,9 @@ return(
   
     <div className="card-body px-lg-5 pt-0">
 
+    {error && (
+        <ErrorNotice message={error.msg} clearError={() => setError(undefined)} />
+      )}
         
         <form className="text-center" style={{}} action="#!" onSubmit={submitHandler}>
 
@@ -58,7 +70,7 @@ return(
                 <div className="col">             
                     <div className="md-form">
                         <input type="text" id="materialRegisterFormFirstName" className="form-control" onChange={(e)=>{setUsername(e.target.value)}}></input>
-                        <label for="materialRegisterFormFirstName">Username</label>
+                        <label htmlFor="materialRegisterFormFirstName">Username</label>
                     </div>
                 </div>
             </div>
@@ -66,13 +78,13 @@ return(
             
             <div className="md-form mt-0">
                 <input type="email" id="materialRegisterFormEmail" className="form-control" onChange={(e)=>{setEmail(e.target.value)}}></input>
-                <label for="materialRegisterFormEmail">E-mail</label>
+                <label htmlFor="materialRegisterFormEmail">E-mail</label>
             </div>
 
             
             <div className="md-form">
                 <input type="password" id="materialRegisterFormPassword" className="form-control" aria-describedby="materialRegisterFormPasswordHelpBlock"onChange={(e)=>{setPassword(e.target.value)}}></input>
-                <label for="materialRegisterFormPassword">Password</label>
+                <label htmlFor="materialRegisterFormPassword">Password</label>
                 <small id="materialRegisterFormPasswordHelpBlock" className="form-text text-muted mb-4">
                      6 characters 
                 </small>
@@ -80,7 +92,7 @@ return(
 
     
 
-            <button className="btn btn-outline-danger btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit">Submit</button>
+            <button className="btn btn-outline-danger btn-rounded btn-block my-4 waves-effect z-depth-0"disabled={!email || !username || !password} type="submit" >Submit</button>
 
             <hr></hr>
 

@@ -6,7 +6,7 @@ import SignUp from './users/components/Auth/signUp';
 import Login from './users/components/Auth/login';
 import MainNavigation from './shared/Navigation/MainNavbar';
 import UserContext from './users/context/user-context';
-import Axios from "axios";
+
 
 
 
@@ -21,6 +21,9 @@ const [userData, setUserData] = useState({
 
 useEffect(() => {
   
+  const abortController = new AbortController()
+  const signal = abortController.signal
+
   const checkLoggedIn = async () => {
     
     let token = localStorage.getItem("auth-token");
@@ -52,7 +55,7 @@ useEffect(() => {
          headers:{
           'Authorization':`Bearer ${token}` 
          }
-       })
+       },{signal:signal})
        .then((userResponse)=>userResponse.json())
        .then((usersResponse)=>{
          console.log(usersResponse)
@@ -66,29 +69,15 @@ useEffect(() => {
      
        
     }
-    // if (token === null) {
-    //   localStorage.setItem("auth-token", "");
-    //   token = "";
-    // }
-    // const tokenRes = await Axios.post(
-    //   "http://localhost:5000/api/users/tokenIsValid",
-    //   null,
-    //   { headers: { "Authorization": token } }
-    // );
-    // if (tokenRes.data) {
-    //   const userRes = await Axios.get("http://localhost:5000/api/users/", {
-    //     headers: { "Authorization": token },
-    //   });
-    //   setUserData({
-    //     token,
-    //     user: userRes.data,
-    //   });
-    // }
+
   };
 
   checkLoggedIn();
+  return function cleanup(){
+    abortController.abort()
+  }
 }, []);
-  console.log()
+
 return(
     
 <Router>

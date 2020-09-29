@@ -5,7 +5,7 @@ import UserContext from'../../users/context/user-context';
 
 const MainNavigation =()=>{
 
-const {userData} =useContext(UserContext);
+const {userData,setUserData} =useContext(UserContext);
 
 
   // const logout =()=>{
@@ -34,52 +34,52 @@ const {userData} =useContext(UserContext);
    
 //   </ul>
 // </nav> 
-<nav class="mb-1 navbar navbar-expand-lg mean-fruit-gradientt ">
+<nav className="mb-1 navbar navbar-expand-lg mean-fruit-gradientt ">
 <NavLink to="/">
-  <a class="navbar-brand"></a>
+  <span className="navbar-brand">Products</span>
   
    </NavLink>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-333"
+  <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-333"
     aria-controls="navbarSupportedContent-333" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
+    <span className="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent-333">
-    <ul class="navbar-nav ml-auto nav-flex-icons">
+  <div className="collapse navbar-collapse" id="navbarSupportedContent-333">
+    <ul className="navbar-nav ml-auto nav-flex-icons">
    
-      <li class="nav-item ">
+      <li className="nav-item ">
         {userData.user ?(
           <NavLink to="/cart">
-          <a class="nav-link waves-effect waves-light linkText">
-            <i class="fas fa-shopping-cart"></i>
-          </a>
+          <span className="nav-link waves-effect waves-light linkText">
+            <i className="fas fa-shopping-cart"></i>
+          </span>
           </NavLink>
         ):(
           <NavLink to="/signup">
-          <a class="nav-link waves-effect waves-light linkText">
-            <i class="fas fa-shopping-cart"></i>
-          </a>
+          <span className="nav-link waves-effect waves-light linkText">
+            <i className="fas fa-shopping-cart"></i>
+          </span>
           </NavLink>
         )}
       
       </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
+      <li className="nav-item dropdown">
+        <span className="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-user"></i>
-        </a>
-        <div class="dropdown-menu dropdown-menu-right dropdown-default"
+          <i className="fas fa-user"></i>
+        </span>
+        <div className="dropdown-menu dropdown-menu-right dropdown-default"
           aria-labelledby="navbarDropdownMenuLink-333">
             {userData.user ?(
                  <NavLink to='logout'> 
-                 <a class="dropdown-item" href="#">Log Out</a>
+                 <span className="dropdown-item">Log Out</span>
                  </NavLink>
             ):(
               <div>
               <NavLink to='/login'>
-              <a class="dropdown-item" href="#">Login</a>
+              <span className="dropdown-item">Login</span>
               </NavLink>
               <NavLink to="/signup">
-              <a class="dropdown-item" href="#">Sign Up</a>
+              <span className="dropdown-item">Sign Up</span>
               </NavLink>
               </div>
             )}
