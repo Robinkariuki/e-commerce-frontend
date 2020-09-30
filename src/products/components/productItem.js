@@ -11,7 +11,7 @@ const ProductItem =(props)=>{
 
   const addToCart =async (productId,quantity)=>{
     try{
-    const url = "http://localhost:8000/api/cart/addtocart"
+    const url = "http://localhost:5000/api/cart/addtocart"
     const response =await fetch(url,{
       method: "POST",
       body: JSON.stringify({

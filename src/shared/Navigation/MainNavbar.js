@@ -7,16 +7,6 @@ const MainNavigation =()=>{
 
 const {userData,setUserData} =useContext(UserContext);
 
-
-  // const logout =()=>{
-  //   setUserData({
-  //     token:undefined,
-  //     user:undefined
-  //   })
-  //   localStorage.setItem("auth-token","");
-  // }
-
-
     return(
      
 //  <nav className="navbar mean-fruit-gradient ">
