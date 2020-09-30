@@ -6,24 +6,20 @@ import SignUp from './users/components/Auth/signUp';
 import Login from './users/components/Auth/login';
 import MainNavigation from './shared/Navigation/MainNavbar';
 import UserContext from './users/context/user-context';
+import Axios from 'axios';
 
 
 
 
 
 const App =()=>{
-//  const { token, login, logout, userId } = useAuth();
 const [userData, setUserData] = useState({
     token:undefined,
     user:undefined,
 
 });
-
 useEffect(() => {
   
-  const abortController = new AbortController()
-  const signal = abortController.signal
-
   const checkLoggedIn = async () => {
     
     let token = localStorage.getItem("auth-token");
@@ -33,49 +29,31 @@ useEffect(() => {
     }
     
     const url = "http://localhost:5000/api/users/tokenIsValid"
-    let tokenResponse = await fetch(url,{
-      method:"POST",
-      body:null,
-      headers:{
-        'Authorization':`Bearer ${token}` 
 
-        
-
-      }
-    })
-    .then((tokenResponse)=>tokenResponse.json())
-   console.log(tokenResponse.error)
+  const tokenResponse = await Axios.post(url,
+    null,
+    {headers:{'Authorization':`Bearer ${token}`}}
+    
+    ); 
     
  
-    if (tokenResponse){
-       const url ="http://localhost:5000/api/users/"
-       const usersResponse = await fetch(url,{
-         method:"GET",
-         body:null,
-         headers:{
-          'Authorization':`Bearer ${token}` 
-         }
-       },{signal:signal})
-       .then((userResponse)=>userResponse.json())
-       .then((usersResponse)=>{
-         console.log(usersResponse)
-        setUserData({
-          token,
-          user:usersResponse.user
-        })
+    if (tokenResponse.data){
 
-       })
-      
-     
+       const url ="http://localhost:5000/api/users/"
+      const usersResponse = await Axios.get(url,{
+        headers:{'Authorization':`Bearer ${token}`}
+      });
+
+     setUserData({
+          token,
+          user: usersResponse.data,
+        });
        
     }
 
-  }
+  };
 
   checkLoggedIn();
-  return function cleanup(){
-    abortController.abort()
-  }
 }, []);
 
 return(
