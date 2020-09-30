@@ -72,7 +72,7 @@ return(
                 <input type="password" id="materialRegisterFormPassword" className="form-control" aria-describedby="materialRegisterFormPasswordHelpBlock"onChange={(e)=>{setPassword(e.target.value)}}></input>
                 <label htmlFor="materialRegisterFormPassword">Password</label>
                 <small id="materialRegisterFormPasswordHelpBlock" className="form-text text-muted mb-4">
-                     6 characters 
+                    
                 </small>
             </div>
 
