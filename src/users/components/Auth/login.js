@@ -1,8 +1,9 @@
-import React,{useState} from 'react';
+import React,{useState,useContext} from 'react';
 import './login.css';
 import {useHistory} from 'react-router-dom';
-import Authcontext, { AuthContext } from '../../context/auth-context'
-import { useContext } from 'react';
+import userContext from '../../context/user-context';
+import ErrorNotice from '../../errorNotice';
+import Axios from "axios";
 
 const Login =()=>{
 
@@ -12,38 +13,26 @@ const Login =()=>{
 
 
   const history = useHistory();
-  const auth = useContext(AuthContext);
+  const {setUserData} = useContext(userContext)
 
 const submitHandler = async (e) =>{
   e.preventDefault();
   try{
-    const url = "http://localhost:5000/api/users/login";
-    const response = await fetch(url,{
-      method:"POST",
-      body:JSON.stringify({
-        email,
-        password
-      }),
-      headers:{
-        "Content-type": "application/json; charset=UTF-8",
-      },
-    })
-    .then((response)=>response.json())
-    .then(response=>{
-      
-      console.log(response)
-      localStorage.setItem("auth-token",response.token)
-    })
-    // auth.login(response.userId,response.token);
     
-    
-    alert("login sucessfull")
-    history.push('/')
-  }catch(error){
- console.log(error)
-  }
-}  
+    const loginUser = { email, password};
+    const response = await Axios.post("http://localhost:5000/api/users/login", loginUser);
 
+    setUserData({
+      token: response.data.token,
+      user: response.data.user,
+    });
+    localStorage.setItem("auth-token", response.data.token);
+    history.push("/");
+  } catch (err) {
+    err.response.data.msg && setError(err.response.data.msg);
+  }
+};
+console.log(error)
 
 
     return(
@@ -54,8 +43,9 @@ const submitHandler = async (e) =>{
   <h5 className="card-header info-color white-text text-center py-4">
     <strong>Sign in</strong>
   </h5>
-
-
+  {error && (
+        <ErrorNotice message={error} clearError={() => setError(undefined)} />
+      )}
   <div className="card-body px-lg-5 pt-0">
 
     
@@ -75,7 +65,7 @@ const submitHandler = async (e) =>{
 
  
     
-      <button className="btn btn-outline-red btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit" disabled={!email  || !password}>Sign in</button>
+      <button className="btn btn-outline-red btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit">Sign in</button>
 
      
       <p>Not a member?

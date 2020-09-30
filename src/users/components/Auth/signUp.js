@@ -30,7 +30,7 @@ try{
       user: response.data.user,
     });
     localStorage.setItem("auth-token", response.data.token);
-    history.push("/");
+    history.push("/login");
   } catch (err) {
     err.response.data.msg && setError(err.response.data.msg);
   }
