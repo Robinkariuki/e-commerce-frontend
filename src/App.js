@@ -70,7 +70,7 @@ useEffect(() => {
        
     }
 
-  };
+  }
 
   checkLoggedIn();
   return function cleanup(){

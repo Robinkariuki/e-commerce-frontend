@@ -2,9 +2,9 @@ import React from "react";
 
 export default function ErrorNotice(props) {
   return (
-    <div className="error-notice">
+    <div className="toast-header">
       <span>{props.message}</span>
-      <button onClick={props.clearError}>X</button>
+      <button onClick={props.clearError}className="btn btn-danger px-3">X</button>
     </div>
   );
 }

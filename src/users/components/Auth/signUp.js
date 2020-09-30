@@ -3,52 +3,38 @@ import './signUp.css';
 import {useHistory} from 'react-router-dom';
 import userContext from '../../context/user-context';
 import ErrorNotice from '../../errorNotice';
-
+import Axios from "axios";
 const SignUp =()=>{
 
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
     const [username, setUsername] = useState()
     const [error,setError] = useState();
+ 
 
+    const {setUserData} = useContext(userContext)
     const history = useHistory();
     
-    const {setUserData} = useContext(userContext)
+  
      
-const submitHandler =async (e) =>{
+const submitHandler = async (e) =>{
     e.preventDefault();
 
 try{
-   const url = "http://localhost:5000/api/users/signup";
-   const response = await fetch(url,{
-       method: "POST",
-       body:JSON.stringify({
-           username,
-           password,
-           email
-       }),
-       headers:{
-        "Content-type": "application/json; charset=UTF-8",
-      },
-   })
-    .then((response)=>response.json())
-    .then(response=>{
-        setUserData({
-            token:response.token,
-            user:response.user,
-        });
-console.log(response.errors)
-setError(response.errors)
-   localStorage.setItem("auth-token",response.token);
-   history.push('/login') 
-    })
-}catch(err){
-   console.log(err)
-}
-   }
-
-
     
+    const newUser = { email, password,username };
+    const response = await Axios.post("http://localhost:5000/api/users/signup", newUser);
+
+    setUserData({
+      token: response.data.token,
+      user: response.data.user,
+    });
+    localStorage.setItem("auth-token", response.data.token);
+    history.push("/");
+  } catch (err) {
+    err.response.data.msg && setError(err.response.data.msg);
+  }
+};
 return(
         <div className="container">
         
@@ -61,7 +47,7 @@ return(
     <div className="card-body px-lg-5 pt-0">
 
     {error && (
-        <ErrorNotice message={error.msg} clearError={() => setError(undefined)} />
+        <ErrorNotice message={error} clearError={() => setError(undefined)} />
       )}
         
         <form className="text-center" style={{}} action="#!" onSubmit={submitHandler}>
@@ -92,7 +78,7 @@ return(
 
     
 
-            <button className="btn btn-outline-danger btn-rounded btn-block my-4 waves-effect z-depth-0"disabled={!email || !username || !password} type="submit" >Submit</button>
+            <button className="btn btn-outline-danger btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit" >Submit</button>
 
             <hr></hr>
 
