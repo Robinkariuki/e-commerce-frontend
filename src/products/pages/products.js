@@ -6,7 +6,7 @@ import './products.css'
 import UserContext from '../../users/context/user-context';
 // const Unsplash = require('unsplash-js').default;
 
-const Products =()=>{
+const Products =(props)=>{
   const [products, setProducts] = useState([]);
   const [hasError, setError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -30,8 +30,10 @@ const Products =()=>{
       });
     
     }
+    props.checkLoggedIn()
     getProducts()
  
+    
 
   },[])
 

@@ -18,41 +18,42 @@ const [userData, setUserData] = useState({
     user:undefined,
 
 });
+const checkLoggedIn = async () => {
+    
+  let token = localStorage.getItem("auth-token");    
+  if (token === null){
+    localStorage.setItem("auth-token","");
+    token=""
+  }
+  
+  const url = "http://localhost:5000/api/users/tokenIsValid"
+
+const tokenResponse = await Axios.post(url,
+  null,
+  {headers:{'Authorization':`Bearer ${token}`}}
+  
+  ); 
+  
+
+  if (tokenResponse.data){
+
+     const url ="http://localhost:5000/api/users/"
+    const usersResponse = await Axios.get(url,{
+      headers:{'Authorization':`Bearer ${token}`}
+    });
+
+   setUserData({
+        token,
+        user: usersResponse.data,
+      });
+     
+  }
+
+};
+
 useEffect(() => {
   
-  const checkLoggedIn = async () => {
-    
-    let token = localStorage.getItem("auth-token");
-    
-    if (token === null){
-      localStorage.setItem("auth-token","");
-    }
-    
-    const url = "http://localhost:5000/api/users/tokenIsValid"
-
-  const tokenResponse = await Axios.post(url,
-    null,
-    {headers:{'Authorization':`Bearer ${token}`}}
-    
-    ); 
-    
  
-    if (tokenResponse.data){
-
-       const url ="http://localhost:5000/api/users/"
-      const usersResponse = await Axios.get(url,{
-        headers:{'Authorization':`Bearer ${token}`}
-      });
-
-     setUserData({
-          token,
-          user: usersResponse.data,
-        });
-       
-    }
-
-  };
-
   checkLoggedIn();
 }, []);
 
@@ -73,12 +74,12 @@ return(
         <Cart/>
     </Route>
     <Route path="/" exact>
-            <Products/>
+            <Products checkLoggedIn={checkLoggedIn}/>
     </Route>
     </Switch>
     </UserContext.Provider> 
 </Router>
-)
+);
 
 }
 

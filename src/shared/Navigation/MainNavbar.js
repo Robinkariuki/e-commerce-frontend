@@ -7,6 +7,16 @@ const MainNavigation =()=>{
 
 const {userData,setUserData} =useContext(UserContext);
 
+
+  const logout =()=>{
+    setUserData({
+      token:undefined,
+      user:undefined
+    })
+    localStorage.setItem("auth-token","");
+  }
+
+
     return(
      
 //  <nav className="navbar mean-fruit-gradient ">
@@ -60,8 +70,8 @@ const {userData,setUserData} =useContext(UserContext);
         <div className="dropdown-menu dropdown-menu-right dropdown-default"
           aria-labelledby="navbarDropdownMenuLink-333">
             {userData.user ?(
-                 <NavLink to='logout'> 
-                 <span className="dropdown-item">Log Out</span>
+                 <NavLink to='/'> 
+                 <span className="dropdown-item" onClick={(e)=>logout()}>Log Out</span>
                  </NavLink>
             ):(
               <div>

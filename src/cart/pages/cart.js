@@ -1,7 +1,7 @@
-import React,{useState,useEffect} from 'react';
+import React,{useState,useEffect,useContext} from 'react';
 import CartList from '../components/cartList';
 import LoadingSpinner from '../../shared/LoadingSpinner/loadingspinner'
-
+import UserContext from '../../users/context/user-context';
 
 
 const Cart =()=>{
@@ -10,7 +10,7 @@ const Cart =()=>{
     const [hasError, setError] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
   
-
+    const {userData} = useContext(UserContext);
     const increaseQty= async (id)=> {
         try {
           const url =  "http://localhost:5000/api/cart/increase-quantity"
