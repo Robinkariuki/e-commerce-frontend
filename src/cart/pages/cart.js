@@ -10,7 +10,6 @@ const Cart =()=>{
     const [hasError, setError] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
   
-    const {userData} = useContext(UserContext);
     const increaseQty= async (id)=> {
         try {
           const url =  "http://localhost:5000/api/cart/increase-quantity"
@@ -87,8 +86,6 @@ const removeItem=async(id)=>{
         await fetch(url)
         .then((response)=>response.json())
         .then((res)=>{
-            console.log(res.data.items)
-            console.log(res.data.subTotal)
             setTotal(res.data.subTotal)
             setCartItems(res.data.items)
             setIsLoading(false);

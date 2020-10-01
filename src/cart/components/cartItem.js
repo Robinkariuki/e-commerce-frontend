@@ -3,15 +3,15 @@ import React, { useEffect } from 'react';
 const CartItem =(props)=>{
 
   
-
+ const {getCartItems}= props
 
 
 useEffect(()=>{
-  props.getCartItems()
+  getCartItems()
 },[])
 
 
-console.log(props)
+
     return(
      
       <div className="row">

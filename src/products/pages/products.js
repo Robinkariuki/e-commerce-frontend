@@ -10,7 +10,7 @@ const Products =(props)=>{
   const [hasError, setError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-  const {userData} = useContext(UserContext);
+ 
 
 
   useEffect(()=>{
