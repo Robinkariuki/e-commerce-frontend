@@ -1,8 +1,8 @@
-import React,{useContext, useEffect,useState} from 'react'
+import React,{ useEffect,useState} from 'react'
 import ProductList from '../components/productList';
 import LoadingSpinner from '../../shared/LoadingSpinner/loadingspinner'
 import './products.css'
-import UserContext from '../../users/context/user-context';
+
 
 
 const Products =(props)=>{

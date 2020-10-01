@@ -1,7 +1,6 @@
 import React,{useState,useEffect,useContext} from 'react';
 import CartList from '../components/cartList';
 
-import UserContext from '../../users/context/user-context';
 
 
 const Cart =()=>{

@@ -22,3 +22,10 @@ a:link {
 a:hover {
   color: rgb(236, 99, 99);
 }
+
+.fas{
+  color: azure;
+}
+.fas:hover{
+  color: #d43333 ;
+}
