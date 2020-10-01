@@ -22,7 +22,6 @@ const Products =(props)=>{
       await fetch(url)
       .then((response)=>response.json())
       .then((res)=>{
-        console.log(res)
         setProducts(res)
         setIsLoading(false);
       }).catch((error) => {
