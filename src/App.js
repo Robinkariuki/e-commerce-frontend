@@ -61,7 +61,6 @@ return(
     
 <Router>
 <UserContext.Provider value={{ userData, setUserData }}>
-  {userData.token}
 <MainNavigation/>
     <Switch>
 <Route path="/signup">
