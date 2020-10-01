@@ -22,7 +22,7 @@ const {userData,setUserData} =useContext(UserContext);
 
 <nav className="mb-1 navbar navbar-expand-lg mean-fruit-gradientt ">
 <NavLink to="/">
-  <span className="navbar-brand">Products</span>
+  <span className="navbar-brand">Geek Store</span>
   
    </NavLink>
   <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-333"
