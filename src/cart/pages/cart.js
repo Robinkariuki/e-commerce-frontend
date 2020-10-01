@@ -1,6 +1,6 @@
 import React,{useState,useEffect,useContext} from 'react';
 import CartList from '../components/cartList';
-import LoadingSpinner from '../../shared/LoadingSpinner/loadingspinner'
+
 import UserContext from '../../users/context/user-context';
 
 
