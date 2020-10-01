@@ -4,7 +4,7 @@ import MainNavigation from '../../shared/Navigation/MainNavbar';
 import LoadingSpinner from '../../shared/LoadingSpinner/loadingspinner'
 import './products.css'
 import UserContext from '../../users/context/user-context';
-// const Unsplash = require('unsplash-js').default;
+
 
 const Products =(props)=>{
   const [products, setProducts] = useState([]);
