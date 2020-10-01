@@ -5,19 +5,14 @@ import LoadingSpinner from '../../shared/LoadingSpinner/loadingspinner';
 const CartList =(props)=>{
 
 
-    if(props.items.length===0){
-        return(
-            <div className="center">
-                
-                <LoadingSpinner/>
-               
+   
+    return(
 
-            </div>
-        )
-    } 
-
-    console.log(props)
-    return(<div>
+   <React.Fragment>
+     {props.isLoading && <div className="center">
+      <LoadingSpinner />
+    </div>}
+    <div>
         <section className="container">
     <h5 className="mb-4">Cart (<span>{props.items.length}</span> items)</h5>
         {props.items.map(item=>(
@@ -80,7 +75,10 @@ const CartList =(props)=>{
     
         </div>
   </section>
-    </div>)
+    </div>
+    </React.Fragment>
+    )
+    
 };
 
     

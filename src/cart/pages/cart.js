@@ -114,6 +114,7 @@ total={Total}
 getCartItems={getCartItems}
 decreaseQuantity={decreaseQuantity}
 removeItem={removeItem}
+isLoading={isLoading}
 
 />
 </React.Fragment>)
