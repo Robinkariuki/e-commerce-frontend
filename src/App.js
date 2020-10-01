@@ -1,5 +1,5 @@
-import React, { Profiler, useEffect, useState } from 'react';
-import {BrowserRouter as Router,Route,Redirect,Switch} from 'react-router-dom'
+import React, {  useEffect, useState } from 'react';
+import {BrowserRouter as Router,Route,Switch} from 'react-router-dom'
 import Products from './products/pages/products';
 import Cart from './cart/pages/cart';
 import SignUp from './users/components/Auth/signUp';
