@@ -23,7 +23,7 @@ const ProductItem =(props)=>{
       },
     });let data = await response.json();
     alert("Item Added To Cart");
-    console.log(data);
+   
   } catch (err) {
     alert("Something Went Wrong");
     console.log(err);

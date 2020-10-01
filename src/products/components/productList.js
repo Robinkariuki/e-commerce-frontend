@@ -14,7 +14,6 @@ const ProductList =(props)=>{
             </div>
         )
     } 
-console.log(props)
 return(<div className='container'>
     {props.items.products.map(item=>(
         <ProductItem
