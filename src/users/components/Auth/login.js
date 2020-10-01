@@ -43,8 +43,9 @@ console.log(error)
   <h5 className="card-header info-color white-text text-center py-4">
     <strong>Sign in</strong>
   </h5>
+
   {error && (
-        <ErrorNotice message={error} clearError={() => setError(undefined)} />
+        <ErrorNotice message={error} clearError={() => setError(undefined)} className="error-notice"/>
       )}
   <div className="card-body px-lg-5 pt-0">
 
