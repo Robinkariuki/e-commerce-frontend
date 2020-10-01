@@ -1,6 +1,5 @@
 import React,{useContext, useEffect,useState} from 'react'
 import ProductList from '../components/productList';
-import MainNavigation from '../../shared/Navigation/MainNavbar';
 import LoadingSpinner from '../../shared/LoadingSpinner/loadingspinner'
 import './products.css'
 import UserContext from '../../users/context/user-context';
