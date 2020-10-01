@@ -43,6 +43,9 @@ const {userData,setUserData} =useContext(UserContext);
           <NavLink to="/signup">
           <span className="nav-link waves-effect waves-light linkText">
             <i className="fas fa-shopping-cart"></i>
+            <span className="lblCartCount">
+            0
+          </span>
           </span>
           </NavLink>
         )}
