@@ -1,13 +1,14 @@
 import React, { useContext } from  'react';
 import {NavLink} from 'react-router-dom';
 import './MainNavbar.css'
+import cartContext from '../../cart/context/cartConext';
 import UserContext from'../../users/context/user-context';
 
 const MainNavigation =()=>{
 
-const {userData,setUserData} =useContext(UserContext);
+const {userData,setUserData,cartitems} =useContext(UserContext);
 
-
+//  const {items} = useContext(cartContext);
   const logout =()=>{
     setUserData({
       token:undefined,
@@ -16,11 +17,12 @@ const {userData,setUserData} =useContext(UserContext);
     localStorage.setItem("auth-token","");
   }
 
-
+console.log(cartitems)
     return(
      
 
 <nav className="mb-1 navbar navbar-expand-lg mean-fruit-gradientt ">
+  
 <NavLink to="/">
   <span className="navbar-brand">Geek Store</span>
   
@@ -44,7 +46,7 @@ const {userData,setUserData} =useContext(UserContext);
           <span className="nav-link waves-effect waves-light linkText">
             <i className="fas fa-shopping-cart"></i>
             <span className="lblCartCount">
-            0
+            {cartitems}
           </span>
           </span>
           </NavLink>

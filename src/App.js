@@ -18,6 +18,20 @@ const [userData, setUserData] = useState({
     user:undefined,
 
 });
+const [cartitems,setCartItems] =useState();
+const getCartItems =async ()=>{
+  const url =  "http://localhost:5000/api/cart/get-cart";
+  await fetch(url)
+  .then((response)=>response.json())
+  .then((res)=>{
+     
+      setCartItems(res.data.items.length) 
+  }).catch((error) => {
+  throw error
+ });
+}
+
+
 const checkLoggedIn = async () => {
     
   let token = localStorage.getItem("auth-token");    
@@ -53,14 +67,15 @@ const tokenResponse = await Axios.post(url,
 
 useEffect(() => {
   
- 
+  getCartItems()
   checkLoggedIn();
 }, []);
 
 return(
     
 <Router>
-<UserContext.Provider value={{ userData, setUserData }}>
+<UserContext.Provider value={{ userData, setUserData,cartitems }}>
+
 <MainNavigation/>
     <Switch>
 <Route path="/signup">

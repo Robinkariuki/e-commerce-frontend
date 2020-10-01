@@ -6,11 +6,13 @@
 }
 
 
-.navbar ul{
-
-        list-style-type: none;
-    
+.navbar-brand{
+color:white;
 }
+.navbar-brand:hover{
+  color:#d43333;
+  }
+  
 
 i{
     color: white;
@@ -34,7 +36,7 @@ a:hover {
 .lblCartCount {
   font-size: 12px;
   background: rgba(250,48,48,1);
-  color: rgb(29, 28, 28);
+  color: rgb(255, 255, 255);
   padding: 0 5px;
   vertical-align: top;
 }

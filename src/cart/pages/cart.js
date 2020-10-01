@@ -1,9 +1,10 @@
 import React,{useState,useEffect,useContext} from 'react';
 import CartList from '../components/cartList';
-
+import cartContext from '../context/cartConext';
 
 
 const Cart =()=>{
+  const cart = useContext(cartContext)
     const [Cartitems, setCartItems] = useState([]);
     const [Total,setTotal] =useState()
     const [hasError, setError] = useState(false);
@@ -88,6 +89,7 @@ const removeItem=async(id)=>{
             setTotal(res.data.subTotal)
             setCartItems(res.data.items)
             setIsLoading(false);
+            cart.items(res.data.items)
         }).catch((error) => {
          setError(error);
        });
