@@ -32,7 +32,7 @@ const ProductItem =(props)=>{
 
   }
 
-    console.log(props.id)
+   
 
     return(    
   <div className="item card-group">
