@@ -37,30 +37,7 @@ const Products =(props)=>{
 
   },[])
 
-
-
-
-    // const [loadedUsers,setLoadedUsers] = useState([])
-    // const unsplash = new Unsplash({ accessKey: "CGU__vWPrr2KnXkILVwZzWT6PwsFxpcsL8iDqiyRoz8" });
-
-    // useEffect(()=>{
-    // unsplash.users.profile("robin")
-    // .catch(err => {
-    // console.log(err)
-    // });
-    // unsplash.photos.listPhotos(1, 16, "latest",{ orientation: "potrait" })
-    // .then(res=>res.json())
-    // .then(results=>{
-    //   setLoadedUsers(results)
-    //   console.log(loadedUsers)
-    //   console.log(results)
-    // })
-    // .catch((error) => {
-    //     console.log(error)
-    //   })
-
-    // },[])
-    console.log(userData);
+  
     return(
      
      <React.Fragment>

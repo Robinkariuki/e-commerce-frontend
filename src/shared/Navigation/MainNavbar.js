@@ -19,21 +19,7 @@ const {userData,setUserData} =useContext(UserContext);
 
     return(
      
-//  <nav className="navbar mean-fruit-gradient ">
-//     <ul className="navbar-nav mr-auto">
-//     <NavLink to="/" className="linkText">
-//     <li className="navbar-brand">Market place</li> 
-//     </NavLink>
-//     </ul>
-//   <ul>
-//     <li className="justify-content-center"><NavLink to="/cart" className="linkText">
-//   <i className="fas fa-shopping-cart"style={{marginRight:'5em'}}></i>
-//   </NavLink></li>
 
-
-   
-//   </ul>
-// </nav> 
 <nav className="mb-1 navbar navbar-expand-lg mean-fruit-gradientt ">
 <NavLink to="/">
   <span className="navbar-brand">Products</span>
