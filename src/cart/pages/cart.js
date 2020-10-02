@@ -12,7 +12,7 @@ const Cart =()=>{
   
     const increaseQty= async (id)=> {
         try {
-          const url =  "http://localhost:5000/api/cart/increase-quantity"
+          const url =  process.env.REACT_APP_BACKEND_URL+'/cart/increase-quantity'
           const response = await fetch(url,{
             method: "POST",
             body: JSON.stringify({
@@ -37,7 +37,7 @@ const Cart =()=>{
 
 const decreaseQuantity=async(id)=>{
   try{
-  const url = "http://localhost:5000/api/cart/reduce-quantity"
+  const url = process.env.REACT_APP_BACKEND_URL+'/cart/reduce-quantity'
   const response = await fetch(url,{
     method: "POST",
     body: JSON.stringify({
@@ -60,7 +60,7 @@ console.log(response);
 
 const removeItem=async(id)=>{
   try{
-  const url ="http://localhost:5000/api/cart/remove-product";
+  const url =process.env.REACT_APP_BACKEND_URL+'/cart/remove-product';
   const response = await fetch (url,{
     method:"POST",
     body:JSON.stringify({
@@ -81,7 +81,7 @@ const removeItem=async(id)=>{
 }
 
     const getCartItems =async ()=>{
-        const url =  "http://localhost:5000/api/cart/get-cart";
+        const url =  process.env.REACT_APP_BACKEND_URL+'/cart/get-cart';
         setIsLoading(true);
         await fetch(url)
         .then((response)=>response.json())
