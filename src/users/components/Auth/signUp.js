@@ -4,6 +4,7 @@ import {useHistory} from 'react-router-dom';
 import userContext from '../../context/user-context';
 import ErrorNotice from '../../errorNotice';
 import Axios from "axios";
+import {NavLink} from 'react-router-dom';
 const SignUp =()=>{
 
     const [email, setEmail] = useState();
@@ -81,7 +82,11 @@ return(
             <button className="btn btn-outline-danger btn-rounded btn-block my-4 waves-effect z-depth-0" type="submit" >Submit</button>
 
             <hr></hr>
-
+            <p>Already a member?
+      <NavLink to="/login">
+        <span> Sign in</span>
+        </NavLink>
+      </p>
         
     
 

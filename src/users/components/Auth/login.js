@@ -1,6 +1,7 @@
 import React,{useState,useContext} from 'react';
 import './login.css';
 import {useHistory} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 import userContext from '../../context/user-context';
 import ErrorNotice from '../../errorNotice';
 import Axios from "axios";
@@ -70,8 +71,9 @@ console.log(error)
 
      
       <p>Not a member?
-        
-        <a href="" >Signup</a>
+      <NavLink to="/signup">
+        <span> Signup</span>
+        </NavLink>
       </p>
 
     
