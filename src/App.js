@@ -51,7 +51,7 @@ const tokenResponse = await Axios.post(url,
 
   if (tokenResponse.data){
 
-     const url ="http://localhost:5000/api/users/"
+     const url =process.env.REACT_APP_BACKEND_URL+'/users/'
     const usersResponse = await Axios.get(url,{
       headers:{'Authorization':`Bearer ${token}`}
     });
