@@ -8,7 +8,7 @@ const MainNavigation =()=>{
 
 const {userData,setUserData,cartitems} =useContext(UserContext);
 
-//  const {items} = useContext(cartContext);
+
   const logout =()=>{
     setUserData({
       token:undefined,
