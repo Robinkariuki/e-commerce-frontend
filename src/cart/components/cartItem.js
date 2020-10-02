@@ -29,7 +29,7 @@ useEffect(()=>{
                 <div className="col-md-5 col-lg-3 col-xl-3">
                   <div className="view zoom overlay z-depth-1 rounded mb-3 mb-md-0">
                     <img className="img-fluid w-100"
-                      src={`${process.env.REACT_APP_ASSET_URL}/${props.image}`} alt="Sample"></img>
+                      src={props.image}alt="Sample"></img>
                     <a href="#!">
                     </a>
                   </div>
