@@ -1,4 +1,4 @@
-import React, {  useEffect, useState } from 'react';
+import React, {  useEffect, useState,Suspense } from 'react';
 import {BrowserRouter as Router,Route,Switch} from 'react-router-dom'
 import Products from './products/pages/products';
 // import Cart from './cart/pages/cart';
@@ -7,6 +7,7 @@ import Products from './products/pages/products';
 import MainNavigation from './shared/Navigation/MainNavbar';
 import UserContext from './users/context/user-context';
 import Axios from 'axios';
+import LoadingSpinner from './shared/LoadingSpinner/loadingspinner';
 
 
 const SignUp = React.lazy(()=>import('./users/components/Auth/signUp'));
@@ -81,6 +82,7 @@ return(
 
 <MainNavigation/>
     <Switch>
+      <Suspense fallback={<div className="center"><LoadingSpinner/></div> }>
 <Route path="/signup">
         <SignUp/>
     </Route>
@@ -93,6 +95,7 @@ return(
     <Route path="/" exact>
             <Products checkLoggedIn={checkLoggedIn}/>
     </Route>
+    </Suspense>
     </Switch>
     </UserContext.Provider> 
 </Router>

@@ -1,7 +1,7 @@
 import React, { useContext } from  'react';
 import {NavLink} from 'react-router-dom';
 import './MainNavbar.css'
-import cartContext from '../../cart/context/cartConext';
+
 import UserContext from'../../users/context/user-context';
 
 const MainNavigation =()=>{
