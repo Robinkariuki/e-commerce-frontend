@@ -1,14 +1,17 @@
 import React, {  useEffect, useState } from 'react';
 import {BrowserRouter as Router,Route,Switch} from 'react-router-dom'
 import Products from './products/pages/products';
-import Cart from './cart/pages/cart';
-import SignUp from './users/components/Auth/signUp';
-import Login from './users/components/Auth/login';
+// import Cart from './cart/pages/cart';
+// import SignUp from './users/components/Auth/signUp';
+// import Login from './users/components/Auth/login';
 import MainNavigation from './shared/Navigation/MainNavbar';
 import UserContext from './users/context/user-context';
 import Axios from 'axios';
 
 
+const SignUp = React.lazy(()=>import('./users/components/Auth/signUp'));
+const Cart = React.lazy(()=>import('./cart/pages/cart'));
+const Login = React.lazy(()=>import('./users/components/Auth/login'));
 
 
 
