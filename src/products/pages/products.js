@@ -17,7 +17,7 @@ const Products =(props)=>{
     
     const getProducts=async()=>{
       setIsLoading(true);
-      const url= 'http://localhost:5000/api/products'
+      const url= process.env.REACT_APP_BACKEND_URL+'/products'
       await fetch(url)
       .then((response)=>response.json())
       .then((res)=>{

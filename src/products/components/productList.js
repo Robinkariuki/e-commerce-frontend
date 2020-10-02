@@ -33,24 +33,7 @@ return(<div className='container'>
 </div>)
     
   
-    // return(<div className='container'>
-        
-    //        { props.items.map(item=>(
-    //           <ProductItem 
-    //           className={'id'} 
-    //           key={item.id}
-    //           id={item.id}
-    //           image={item.urls}
-    //           alt={item.alt_description}
-    //           likes={item.likes}
-    //           description={item.description}
-              
-              
-              
-    //           />
-    //        ))}
-    //     </div>
-    // )
+  
 }
 
 
