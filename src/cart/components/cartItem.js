@@ -39,9 +39,9 @@ useEffect(()=>{
                     <div className="d-flex justify-content-between">
                       <div>
     <h5></h5>
-                        <p className="mb-3 text-muted text-uppercase small">Shirt - blue</p>
+                        {/* <p className="mb-3 text-muted text-uppercase small">Shirt - blue</p>
                         <p className="mb-2 text-muted text-uppercase small">Color: blue</p>
-                        <p className="mb-3 text-muted text-uppercase small">Size: M</p>
+                        <p className="mb-3 text-muted text-uppercase small">Size: M</p> */}
                       </div>
                      
                     </div>

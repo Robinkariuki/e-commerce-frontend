@@ -38,8 +38,8 @@ const CartList =(props)=>{
           <div className="mb-3">
             <div className="pt-4">
     
-              <h5 className="mb-3">The total amount of</h5>
-    
+              {/* <h5 className="mb-3">The total amount of</h5>
+     */}
               <ul className="list-group list-group-flush">
   
               
@@ -54,7 +54,7 @@ const CartList =(props)=>{
             </div>
           </div>
        
-          <div className="mb-3">
+          {/* <div className="mb-3">
             <div className="pt-4">
     
               <a className="dark-grey-text d-flex justify-content-between" data-toggle="collapse" href="#collapseExample"
@@ -72,7 +72,7 @@ const CartList =(props)=>{
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
     
         </div>
   </section>
