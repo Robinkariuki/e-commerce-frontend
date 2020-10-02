@@ -23,7 +23,7 @@ const submitHandler = async (e) =>{
 try{
     
     const newUser = { email, password,username };
-    const response = await Axios.post("http://localhost:5000/api/users/signup", newUser);
+    const response = await Axios.post(process.env.REACT_APP_BACKEND_URL+'/users/signup', newUser);
 
     setUserData({
       token: response.data.token,

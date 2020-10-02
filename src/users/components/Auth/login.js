@@ -20,7 +20,7 @@ const submitHandler = async (e) =>{
   try{
     
     const loginUser = { email, password};
-    const response = await Axios.post("http://localhost:5000/api/users/login", loginUser);
+    const response = await Axios.post(process.env.REACT_APP_BACKEND_URL+'/users/login', loginUser);
 
     setUserData({
       token: response.data.token,
