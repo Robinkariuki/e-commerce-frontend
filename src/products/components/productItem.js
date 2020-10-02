@@ -39,7 +39,7 @@ const ProductItem =(props)=>{
    <div className="card mb-4 ">
     <div className="view overlay" >
       <div className='imagesize'>
-  <img className="card-img-top" src={`http://localhost:5000/${props.image}`} alt="Card image cap"></img>
+  <img className="card-img-top" src={ process.env.REACT_APP_ASSET_URL+`/${props.image}`} alt="Card image cap"></img>
   </div>
   <a href="#!">
     <div className="mask rgba-white-slight"></div>
