@@ -20,7 +20,7 @@ const [userData, setUserData] = useState({
 });
 const [cartitems,setCartItems] =useState();
 const getCartItems =async ()=>{
-  const url =  "http://localhost:5000/api/cart/get-cart";
+  const url =  process.env.REACT_APP_BACKEND_URL+'/cart/get-cart';
   await fetch(url)
   .then((response)=>response.json())
   .then((res)=>{
@@ -40,7 +40,7 @@ const checkLoggedIn = async () => {
     token=""
   }
   
-  const url = "http://localhost:5000/api/users/tokenIsValid"
+  const url = process.env.REACT_APP_BACKEND_URL+'/users/tokenIsValid'
 
 const tokenResponse = await Axios.post(url,
   null,
