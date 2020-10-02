@@ -17,7 +17,7 @@ const {userData,setUserData,cartitems} =useContext(UserContext);
     localStorage.setItem("auth-token","");
   }
 
-console.log(cartitems)
+
     return(
      
 
